@@ -1,15 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/styles.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
     <title>Dinner and Drinks App</title>
-</head>
-<body>
-    
+  </head>
+  <body>
+    <header>
+      <nav
+        class="navbar is-black container is-fluid dd-nav"
+        role="navigation"
+        aria-label="main navigation"
+      >
+        <div class="navbar-brand">
+          <h2 class="dd-logo"><i class="fa-solid fa-champagne-glasses"></i> Dinner&Drinks <i class="fa-solid fa-utensils"></i></h2>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <h3>Date Night History</h3>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="container is-fluid">
+      <div class="hero">
+        <div class="weather has-text-right">Today's Weather is: 50&deg; and sunny </div>
+        <div
+          class="tile is-ancestor is-flex is-align-content-center has-text-centered"
+        >
+          <section
+            id="cocktails"
+            class="tile is-parent is-vertical is-6 notification is-info is-flex is-align-content-center has-text-centered"
+          >
+            <h1>Drinks</h1>
+            <div class="tile is-child is-vertical startBtns">
+            <button class="button is-link is-large">Find Your Cocktail</button>
+        </div>
+          </section>
+          <section
+            id="recipe"
+            class="tile is-parent is-vertical is-6 notification is-info is-flex is-align-content-center has-text-centered"
+          >
+            <h1>Dinner</h1>
+            <div class="tile is-child is-vertical startBtns">
+            <button class="button is-link is-large">Find Your Recipe</button>
+          </section>
+        </div>
+      </div>
+    </main>
+    <footer class="footer is-black">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Dinner&DrinksApp</strong> by
+          <a href="https://jgthms.com">Group 7</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The
+          website content is licensed
+          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
+            >CC BY NC SA 4.0</a
+          >.
+        </p>
+      </div>
+    </footer>
 
+    <script src="https://kit.fontawesome.com/e3e4fe1326.js" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
-</body>
+  </body>
 </html>
