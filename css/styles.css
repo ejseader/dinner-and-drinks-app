@@ -47,10 +47,6 @@ footer {
     color: white;
 }
 
-button {
-    position: absolute;
-    margin-top: -280px;
-}
 
 .dd-row {
     display: flex;
@@ -87,7 +83,7 @@ button {
 }
 
 .column.dd-columns > div {
-    width: 100%; // only Edge needed this nonsense
+    width: 100%;
 }
 
 .box {
