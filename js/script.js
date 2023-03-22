@@ -23,7 +23,7 @@ function onDrinkSubmit(drinkName) {
         }
     });
 }
-// onDrinkSubmit()
+// onDrinkSubmit('manhattan')
 
 // ***RECIPE API***
 // Full URL for reference
@@ -40,9 +40,51 @@ const options = {
 		'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
 	}
 };
-function getOptions () {fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=1&q=chicken', options)
+function getOptions () {fetch('https://tasty.p.rapidapi.com/recipes/list?from=0&size=3', options)
 	.then(response => response.json())
 	.then(response => console.log(response))
 	.catch(err => console.error(err));
 }
 // getOptions()
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Functions to open and close a modal
+    function openModal($el) {
+      $el.classList.add('is-active');
+    }
+    function closeModal($el) {
+      $el.classList.remove('is-active');
+    }
+    function closeAllModals() {
+      (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+        closeModal($modal);
+      });
+    }
+    // Add a click event on buttons to open a specific modal
+    (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
+      const modal = $trigger.dataset.target;
+      const $target = document.getElementById(modal);
+      $trigger.addEventListener('click', () => {
+        openModal($target);
+      });
+    });
+    // Add a click event on various child elements to close the parent modal
+    (document.querySelectorAll('.modal-background, .modal-card-head .delete, .modal-card-foot') || []).forEach(($close) => {
+      const $target = $close.closest('.modal');
+      $close.addEventListener('click', () => {
+        closeModal($target);
+      });
+    });
+    // Add a keyboard event to close all modals
+    document.addEventListener('keydown', (event) => {
+      const e = event || window.event;
+      if (e.keyCode === 27) { // Escape key
+        closeAllModals();
+      }
+    });
+  });
+
