@@ -3,12 +3,17 @@
 
 var weather = $('.weather');
 var drinkSubmitBtn = $('#drinkSubmitBtn')
+var drinkResultsBox = $('#cocktailResults')
+var dinnerSubmitBtn = $('#dinnerSubmitBtn')
+var recipeResultsBox = $('#recipeResults')
 
 var weatherBaseURL = 'https://api.openweathermap.org/data/2.5';
 var weatherApiKey = '7712c3c6c0b9e04b01c5813d32146e7f';
 var weatherURL = weatherBaseURL + '/weather?units=imperial&appid=' + weatherApiKey;
 
 drinkSubmitBtn.click(onDrinkSubmit)
+dinnerSubmitBtn.click(onDinnerSubmit)
+
 
 
 // Weather
@@ -39,7 +44,9 @@ function onDrinkSubmit() {
     success: function (results) {
       // success playground
       var cocktail = results[0]
-      console.log(cocktail);
+      var cocktailString = JSON.stringify(cocktail)
+      console.log(typeof cocktailString)
+      drinkResultsBox.append(cocktailString)  
       closeModal($('#drinks-modal'))
     },
     error: function ajaxError(jqXHR) {
@@ -51,8 +58,6 @@ function onDrinkSubmit() {
 // onDrinkSubmit('vodka')
 
 
-
-
 // ***RECIPE API***
 // Full URL for reference
 // See 'from=0&size=3' - this means pick an amount of meals between these two numbers (0 and 3)
@@ -62,7 +67,7 @@ function onDrinkSubmit() {
 'https://tasty.p.rapidapi.com/recipes/list?from=0&size=3&q=chicken'
 
 const options = {
-  url: 'https://tasty.p.rapidapi.com/recipes/list?from=0&size=3',
+  url: 'https://tasty.p.rapidapi.com/recipes/list?from=0&size=1&q=chicken',
   method: 'GET',
   headers: {
     'X-RapidAPI-Key': '9b07acf500msh7f328162cf4918ap156118jsn6c9a77cfe2e5',
@@ -70,18 +75,18 @@ const options = {
   },
   success: function (results) {
     // success playground
-    var cocktail = results[0]
-    console.log(cocktail);
-    closeModal($('#drinks-modal'))
+    // var cocktail = results[0]
+    // console.log(results);
+    closeModal($('#dinner-modal'))
   },
   error: function ajaxError(jqXHR) {
     console.error('Error: ', jqXHR.responseText);
   }
 };
-function getOptions() {
+function onDinnerSubmit() {
   $.ajax(options);
 }
-// getOptions()
+onDinnerSubmit()
 
 
 
