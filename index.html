@@ -75,41 +75,63 @@
           </section>
         </div>
       </div>
-    </main>
-    <footer>
-        <p>
-          Dinner&DrinksApp by
-          <a href="https://github.com/ejseader/dinner-and-drinks-app" target="_blank">Group 7</a>. The source code is licensed
-          <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT</a>.
-        </p>
-    </footer>
-
-    <div id="drinks-modal" class="modal">
-      <div class="modal-background"></div>
-    
-      <div class="modal-content">
-        <div class="box">
-          <p>Enter desired alcohol type...</p>
-          <textarea placeholder="e.g. vodka, whiskey, beer, wine" rows="2"></textarea>
-          <p id="drinkSubmitBtn" class="button is-info is-responsive" type="submit">Submit</p>
-        </div>
+    </nav>
+  </header>
+  <main class="container is-fluid">
+    <div class="hero">
+      <div class="weather has-text-right">Today's Weather is: 50&deg; and sunny </div>
+      <div class="has-text-centered dd-row">
+        <section id="cocktails" class="has-text-centered mx-1 dd-columns">
+          <h1>Drinks</h1>
+          <div id="cocktailResults" class="resultsBox"></div>
+          <button class="button is-link is-large js-modal-trigger" data-target="drinks-modal">Find Your
+            Cocktail</button>
+        </section>
+        <section id="recipe" class=" has-text-centered mx-1 dd-columns">
+          <h1>Dinner</h1>
+          <div id="recipeResults" class="resultsBox"></div>
+          <button class="button is-link is-large js-modal-trigger" data-target="dinner-modal">Find Your Recipe</button>
+        </section>
       </div>
     </div>
+  </main>
+  <footer>
+    <p>
+      Dinner&DrinksApp by
+      <a href="https://github.com/ejseader/dinner-and-drinks-app" target="_blank">Group 7</a>. The source code is
+      licensed
+      <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT</a>.
+    </p>
+  </footer>
 
-    <div id="dinner-modal" class="modal">
-      <div class="modal-background"></div>
-    
-      <div class="modal-content">
-        <div class="box is-centered">
-          <p>Enter desired main ingredient...</p>
-          <textarea placeholder="e.g. chicken, beef, tofu, rice" rows="2"></textarea>
-          <p id="dinnerSubmitBtn" class="button is-info is-responsive" type="submit">Submit</p>
-        </div>
+  <div id="drinks-modal" class="modal">
+    <div class="modal-background"></div>
+
+    <div class="modal-content">
+      <div class="box is-flex is-flex-direction-column">
+        <p>Enter desired alcohol type...</p>
+        <textarea id="drinkInput" class="pl-2 pr-2" placeholder="e.g. vodka, whiskey, beer, wine" rows="2"></textarea>
+        <button id="drinkSubmitBtn" class="button is-info is-responsive">Submit</button>
       </div>
     </div>
+  </div>
 
-    <script src="https://kit.fontawesome.com/e3e4fe1326.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
-  </body>
+  <div id="dinner-modal" class="modal">
+    <div class="modal-background"></div>
+
+    <div class="modal-content">
+      <div class="box is-centered">
+        <p>Enter desired main ingredient...</p>
+        <textarea placeholder="e.g. chicken, beef, tofu, rice" rows="2"></textarea>
+        <p id="dinnerSubmitBtn" class="button is-info is-responsive" type="submit">Submit</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://kit.fontawesome.com/e3e4fe1326.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+    integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+
 </html>
