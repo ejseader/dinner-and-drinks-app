@@ -36,25 +36,42 @@
     </header>
     <main class="container is-fluid">
       <div class="hero">
-        <div class="weather has-text-right">Today's Weather is: 50&deg; and sunny </div>
+        <div class="weather has-text-right"></div>
         <div
           class="has-text-centered dd-row"
         >
           <section
             id="cocktails"
-            class="has-text-centered mx-1 dd-columns"
+            class="has-text-centered mx-1 dd-column"
           >
             <h1>Drinks</h1>
-            <div id="cocktailResults" class="resultsBox"></div>
-            <button class="button is-link is-large js-modal-trigger" data-target="drinks-modal">Find Your Cocktail</button>
+            <div id="cocktailResults" class="resultsBox">
+              <span id="dinnerName" class="name">Brandy Manhattan</span>
+              <p class="ingredientsTitle">Ingredients</p>
+                <ul id="drinkIngredients">
+                  <li>50ml Brandy</li>
+                </ul>
+              <p class="instructions">Instructions</p>
+              <p class="instText">Stir.</p>
+            </div>
+            <button class="button is-link js-modal-trigger is-large is-responsive drinkBtn" data-target="drinks-modal">Find Your Cocktail</button>
           </section>
           <section
             id="recipe"
-            class=" has-text-centered mx-1 dd-columns"
+            class=" has-text-centered mx-1 dd-column"
           >
             <h1>Dinner</h1>
-            <div id="recipeResults" class="resultsBox"></div>
-            <button class="button is-link is-large js-modal-trigger" data-target="dinner-modal">Find Your Recipe</button>
+            <div id="recipeResults" class="resultsBox">
+              <span id="drinkName" class="name">Lemon Chicken</span>
+              <p class="ingredientsTitle">Ingredients</p>
+            <ul id="dinnerIngredients">
+              <li>1 lb Chicken Breast</li>
+              <li>1 lemon</li>
+            </ul>
+            <p class="instructions">Instructions</p> 
+            <p class="instText">Brown chicken in skillet.</p>
+          </div>
+            <button class="button is-link js-modal-trigger is-large is-responsive dinnerBtn" data-target="dinner-modal">Find Your Recipe</button>
           </section>
         </div>
       </div>
