@@ -20,16 +20,16 @@
   <body>
     <header>
       <nav
-        class="navbar is-black container is-fluid dd-nav"
+        class="navbar is-black container is-fluid dd-nav is-spaced"
         role="navigation"
         aria-label="main navigation"
       >
-        <div class="navbar-brand">
+        <div class="navbar-brand is-align-content-center">
           <h2 class="dd-logo"><i class="fa-solid fa-champagne-glasses"></i> Dinner&Drinks <i class="fa-solid fa-utensils"></i></h2>
         </div>
         <div class="navbar-end">
           <div class="navbar-item">
-            <h3>Date Night History</h3>
+            <h3><a href="#">Date Night History</a></h3>
           </div>
         </div>
       </nav>
@@ -38,41 +38,58 @@
       <div class="hero">
         <div class="weather has-text-right">Today's Weather is: 50&deg; and sunny </div>
         <div
-          class="tile is-ancestor is-flex is-align-content-center has-text-centered"
+          class="has-text-centered dd-row"
         >
           <section
             id="cocktails"
-            class="tile is-parent is-vertical is-6 notification is-info is-flex is-align-content-center has-text-centered"
+            class="has-text-centered mx-1 dd-columns"
           >
             <h1>Drinks</h1>
-            <div class="tile is-child is-vertical startBtns">
-            <button class="button is-link is-large">Find Your Cocktail</button>
-        </div>
+            <div id="cocktailResults" class="resultsBox"></div>
+            <button class="button is-link is-large js-modal-trigger" data-target="drinks-modal">Find Your Cocktail</button>
           </section>
           <section
             id="recipe"
-            class="tile is-parent is-vertical is-6 notification is-info is-flex is-align-content-center has-text-centered"
+            class=" has-text-centered mx-1 dd-columns"
           >
             <h1>Dinner</h1>
-            <div class="tile is-child is-vertical startBtns">
-            <button class="button is-link is-large">Find Your Recipe</button>
+            <div id="recipeResults" class="resultsBox"></div>
+            <button class="button is-link is-large js-modal-trigger" data-target="dinner-modal">Find Your Recipe</button>
           </section>
         </div>
       </div>
     </main>
-    <footer class="footer is-black">
-      <div class="content has-text-centered">
+    <footer>
         <p>
-          <strong>Dinner&DrinksApp</strong> by
-          <a href="https://jgthms.com">Group 7</a>. The source code is licensed
-          <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The
-          website content is licensed
-          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-            >CC BY NC SA 4.0</a
-          >.
+          Dinner&DrinksApp by
+          <a href="https://github.com/ejseader/dinner-and-drinks-app" target="_blank">Group 7</a>. The source code is licensed
+          <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT</a>.
         </p>
-      </div>
     </footer>
+
+    <div id="drinks-modal" class="modal">
+      <div class="modal-background"></div>
+    
+      <div class="modal-content">
+        <div class="box">
+          <p>Enter desired alcohol type...</p>
+          <textarea placeholder="e.g. vodka, whiskey, beer, wine" rows="2"></textarea>
+          <p id="drinkSubmitBtn" class="button is-info is-responsive" type="submit">Submit</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="dinner-modal" class="modal">
+      <div class="modal-background"></div>
+    
+      <div class="modal-content">
+        <div class="box is-centered">
+          <p>Enter desired main ingredient...</p>
+          <textarea placeholder="e.g. chicken, beef, tofu, rice" rows="2"></textarea>
+          <p id="dinnerSubmitBtn" class="button is-info is-responsive" type="submit">Submit</p>
+        </div>
+      </div>
+    </div>
 
     <script src="https://kit.fontawesome.com/e3e4fe1326.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
