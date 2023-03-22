@@ -1,23 +1,24 @@
 * {
     font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-size: 1rem;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-body, html {
+html {
     height: 100%;
+}
+
+body {
+    position: relative;
+    min-height: 100%!important;
+    width: 100%;
 }
 
 section h1 {
     font-size: 2rem;
     text-align: center;
-}
-
-.hero {
-    height: 100%;
-}
-
-.startBtns {
-    margin: 30% 0;
 }
 
 footer {
@@ -32,19 +33,84 @@ footer {
     margin-left: 10px;
 }
 
-i {
+.dd-logo i {
     font-size: 2rem;
-    margin-top: -10px;
+    padding-top: -20px;
 }
 
 .dd-nav {
     color: white;
 }
 
-.columns {
-    width: 100%;
+.navbar-item a {
+    font-size: 1.2rem;
+    color: white;
 }
+
+button {
+    position: absolute;
+    margin-top: -280px;
+}
+
+.dd-row {
+    display: flex;
+    min-height: 100%;
+    justify-content: space-around;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    align-items: flex-stretch;
+    background-color: #3e8ed0;
+    color: white;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.dd-column {
+    flex: 1;
+}
+
+.resultsBox {
+    width: 600px;
+    height: 500px;
+    background-color: #aaa;
+    color: black;
+    border: 1px solid black;
+}
+
 
 .weather {
     margin: 20px;
+}
+
+.column.dd-columns {
+    display: inline-block; 
+}
+
+.column.dd-columns > div {
+    width: 100%; // only Edge needed this nonsense
+}
+
+.box {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    background-color: black!important;
+    color:white!important;
+    text-align:center!important;
+    align-items: center!important;
+    border-radius: 10px;
+}
+
+.box textarea {
+    width: 90%;
+    font-size: 1rem;
+}
+
+footer {
+    position: relative!important;
+    background-color: black;
+    color: white;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
