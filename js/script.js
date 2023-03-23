@@ -98,7 +98,7 @@ function onDinnerSubmit() {
 
   $.get({
     url: 'https://api.api-ninjas.com/v1/recipe?query=' + dinnerInput.val(),
-    headers: { 'X-Api-Key': 'oJjHDiFtEw5ukfRj94VpvQ==dA9RS7dNApbhpGyz' },
+    headers: { 'X-Api-Key': 'ZopEIrMGo8DOoc0dzghX6Q==jpI6hU8jDuT9xo9m' },
     contentType: 'application/json',
     success: function (result) {
 
