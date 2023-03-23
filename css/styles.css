@@ -89,7 +89,13 @@ footer {
     overflow: scroll;
 }
 
-.ingredientsTitle {
+.drinkIngredientsTitle {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.dinnerIngredientsTitle {
     font-size: 1.3rem;
     font-weight: bold;
     text-align: left;
@@ -106,7 +112,14 @@ footer {
     text-transform: capitalize;
 }
 
-.instructions {
+.drinkInstructions {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.dinnerInstructions {
     margin-top: 20px;
     font-size: 1.3rem;
     font-weight: bold;

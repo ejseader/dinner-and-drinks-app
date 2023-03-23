@@ -20,6 +20,11 @@ var weatherBaseURL = 'https://api.openweathermap.org/data/2.5';
 var weatherApiKey = '7712c3c6c0b9e04b01c5813d32146e7f';
 var weatherURL = weatherBaseURL + '/weather?units=imperial&appid=' + weatherApiKey;
 
+var drinkIngredientsTitle = $('.drinkIngredientsTitle');
+var drinkInstructionsTitle = $('.drinkInstructions');
+var dinnerIngredientsTitle = $('.dinnerIngredientsTitle');
+var dinnerInstructionsTitle = $('.dinnerInstructions');
+
 // drinkSubmitBtn.click(onDrinkSubmit);
 // dinnerSubmitBtn.click(onDinnerSubmit);
 
@@ -59,6 +64,8 @@ function onDrinkSubmit() {
     contentType: 'application/json',
     success: function (results) {
       // success playground
+      drinkIngredientsTitle.text('Ingredients');
+      drinkInstructionsTitle.text('Instructions');
 
       var i = Math.floor(Math.random() * results.length)
 
@@ -94,6 +101,9 @@ function onDinnerSubmit() {
     headers: { 'X-Api-Key': 'oJjHDiFtEw5ukfRj94VpvQ==dA9RS7dNApbhpGyz' },
     contentType: 'application/json',
     success: function (result) {
+
+      dinnerIngredientsTitle.text('Ingredients');
+      dinnerInstructionsTitle.text('Instructions');
 
       var i = Math.floor(Math.random() * result.length) // array is length 10 => 0.00000001 * 10 => 0, .999999999 * 10 => 9.9999 => 9 =>array[9]
       console.log(i);
