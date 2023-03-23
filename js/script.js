@@ -2,22 +2,26 @@
 
 
 var weather = $('.weather');
-var drinkSubmitBtn = $('#drinkSubmitBtn')
-var drinkResultsBox = $('#cocktailResults')
-var dinnerSubmitBtn = $('#dinnerSubmitBtn')
-var recipeResultsBox = $('#recipeResults')
+var drinkSubmitBtn = $('#drinkSubmitBtn');
+var dinnerSubmitBtn = $('#dinnerSubmitBtn');
+var drinkName = $('#drinkName');
+var drinkIngredientsList = $('#drinkIngredients');
+var drinkInstructions = $('.instDrinkText');
+
+var recipeName = $('#dinnerName');
+var recipeServ = $('#recipeServ');
+var recipeIngr = $('#dinnerIngredients');
+var recipeInst = $('.instDinnerText');
 
 var weatherBaseURL = 'https://api.openweathermap.org/data/2.5';
 var weatherApiKey = '7712c3c6c0b9e04b01c5813d32146e7f';
 var weatherURL = weatherBaseURL + '/weather?units=imperial&appid=' + weatherApiKey;
 
-drinkSubmitBtn.click(onDrinkSubmit)
-dinnerSubmitBtn.click(onDinnerSubmit)
-
-
+drinkSubmitBtn.click(onDrinkSubmit);
+dinnerSubmitBtn.click(onDinnerSubmit);
 
 // Weather
-// getLocation();
+getLocation();
 
 function getLocation() {
   navigator.geolocation.getCurrentPosition(function (locationData) {
@@ -43,10 +47,24 @@ function onDrinkSubmit() {
     contentType: 'application/json',
     success: function (results) {
       // success playground
-      var cocktail = results[0]
-      var cocktailString = JSON.stringify(cocktail)
-      console.log(typeof cocktailString)
-      drinkResultsBox.append(cocktailString)  
+      var cocktailName = results[0].name
+      drinkName.html(cocktailName)
+
+      var drinkIngredients = results[0].ingredients
+
+      for (i = 0; i < drinkIngredients.length; i++) {
+        var drinkIngredients = results[0].ingredients
+        var listItem = document.createElement('li')
+        listItem.innerText = drinkIngredients[i]
+        drinkIngredientsList.html(listItem)
+      }
+      drinkIngredientsList.html(drinkIngredients)
+
+
+      var drinkInstructionsList = results[0].instructions
+      drinkInstructions.html(drinkInstructionsList)
+
+
       closeModal($('#drinks-modal'))
     },
     error: function ajaxError(jqXHR) {
@@ -55,38 +73,152 @@ function onDrinkSubmit() {
   });
 }
 
-// onDrinkSubmit('vodka')
+
+// ***RECIPE API SECTION***
+// ***API-Ninja Keys:***
+// Greg: ZopEIrMGo8DOoc0dzghX6Q==jpI6hU8jDuT9xo9m
+// Eric: zRFOzxWuu7M0B3oR2rtqaw==P5cL6IuV6F939Tgu
 
 
-// ***RECIPE API***
-// Full URL for reference
-// See 'from=0&size=3' - this means pick an amount of meals between these two numbers (0 and 3)
+// ***API-NINJA RECIPE API***
 
-// See 'q=chicken' - this is where a meal is specified (just for reference)
 
-'https://tasty.p.rapidapi.com/recipes/list?from=0&size=3&q=chicken'
+// API Keys:
+// 1) bN+sDFJvoCYHzRK0Cp/dRQ==Nzbwiyafh5qDc7a5
+// 2) zRFOzxWuu7M0B3oR2rtqaw==P5cL6IuV6F939Tgu
+// 3) oJjHDiFtEw5ukfRj94VpvQ==dA9RS7dNApbhpGyz
 
-const options = {
-  url: 'https://tasty.p.rapidapi.com/recipes/list?from=0&size=1&q=chicken',
-  method: 'GET',
-  headers: {
-    'X-RapidAPI-Key': '9b07acf500msh7f328162cf4918ap156118jsn6c9a77cfe2e5',
-    'X-RapidAPI-Host': 'tasty.p.rapidapi.com'
-  },
-  success: function (results) {
-    // success playground
-    // var cocktail = results[0]
-    // console.log(results);
-    closeModal($('#dinner-modal'))
-  },
-  error: function ajaxError(jqXHR) {
-    console.error('Error: ', jqXHR.responseText);
-  }
-};
 function onDinnerSubmit() {
-  $.ajax(options);
+
+  var dinnerInput = $('#dinnerInput')
+
+  $.get({
+    url: 'https://api.api-ninjas.com/v1/recipe?query=' + dinnerInput.val(),
+    headers: { 'X-Api-Key': 'oJjHDiFtEw5ukfRj94VpvQ==dA9RS7dNApbhpGyz' },
+    contentType: 'application/json',
+    success: function (result) {
+
+      var i = Math.floor(Math.random()*result.length) // array is length 10 => 0.00000001 * 10 => 0, .999999999 * 10 => 9.9999 => 9 =>array[9]
+      console.log(i);
+      console.log(result[i]);
+      var recipeTitle = result[i].title
+      recipeName.html(recipeTitle)
+
+      var recipeServings = result[i].servings
+      recipeServ.html(recipeServings)
+
+      var recipeIngredients = result[i].ingredients
+      recipeIngr.html(recipeIngredients)
+
+      var recipeInstructions = result[i].instructions
+      recipeInst.html(recipeInstructions)
+
+
+      closeModal($('#dinner-modal'))
+    },
+    error: function ajaxError(jqXHR) {
+      console.error('Error: ', jqXHR.responseText);
+    }
+  });
 }
-onDinnerSubmit()
+
+// ***API-NINJA RECIPE API*** 
+
+
+
+
+
+
+// ***SPOONACULAR RECIPE API #1 (NOT WORKING)***
+
+// function onDinnerSubmit() {
+
+// var dinnerInput = $('#dinnerInput')
+
+// var recipeURL = 'https://api.spoonacular.com/recipes/findByIngredient?apiKey=65fb1188c0fb4272ba2d1aa2627f7a0a'
+
+// $.get(recipeURL + '&ingredients=' + dinnerInput.val()).then(function (dinnerData) {
+//   console.log(dinnerData)
+// });
+
+// $.ajax({
+//   method: 'GET',
+//   url: 'https://api.spoonacular.com/recipes/findByIngredient?' + dinnerInput.val(),
+//   headers: { 'X-Api-Key': '65fb1188c0fb4272ba2d1aa2627f7a0a' },
+//   contentType: 'application/json',
+//   success: function (result) {
+
+//     console.log(result)
+
+// var recipeTitle = result[0].title
+// recipeName.html(recipeTitle)
+
+// var recipeServings = result[0].servings
+// recipeServ.html(recipeServings)
+
+// var recipeIngredients = result[0].ingredients
+// recipeIngr.html(recipeIngredients)
+
+// var recipeInstructions = result[0].instructions
+// recipeInst.html(recipeInstructions)
+
+
+//       closeModal($('#dinner-modal'))
+//     },
+//     error: function ajaxError(jqXHR) {
+//       console.error('Error: ', jqXHR.responseText);
+//     }
+//   });
+// }
+
+// ***SPOONACULAR RECIPE API #1 (NOT WORKING)****
+
+
+
+
+
+
+// ***SPOONACULAR RECIPE API #2 (WORKING)***
+
+// function onDinnerSubmit() {
+
+  // var dinnerInput = $('#dinnerInput')
+
+//   const settings = {
+//     "async": true,
+//     "crossDomain": true,
+//     "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?ingredients=" + dinnerInput.val() + "&number=3&ignorePantry=true&ranking=1",
+//     "method": "GET",
+//     "headers": {
+//       "X-RapidAPI-Key": "c0f941e840msh245aee4ce120b12p1c810ajsn79c3d98fdcb3",
+//       "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
+//     }
+//   };
+
+//   $.ajax(settings).done(function (response) {
+//     console.log(response);
+//   });
+// }
+
+// ***SPOONACULAR RECIPE API #2 (WORKING)***
+
+
+
+
+
+
+// function onDinnerSubmit() {
+// var recipeURL = 'https://api.edamam.com/api/recipes/v2?type=public&app_id=0a4436b4&app_key=%2076676d75f57cdb3025779cce710a427b%09';
+// $.get(recipeURL + '&q=' + dinnerInput.val()).then(function (dinnerData) {
+// console.log(dinnerData);
+// })
+// }
+
+
+
+// ingredientLines = ingredients (separate lines)
+// yield = amount of servings
+// label = name of recipe
 
 
 
