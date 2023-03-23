@@ -1,9 +1,11 @@
-<<<<<<< greg-branch
-# dinner-and-drinks-app
+# Dinner & Drinks App
+---
 
 ## Wireframe
 
 [Wireframe](https://docs.google.com/drawings/d/10a2aThcjcr6mHohkEe_edts4st25mbduA4G8PNJ0NYU/edit?usp=sharing)
+
+---
 
 ## Description
 
@@ -18,11 +20,12 @@ The application also includes current weather conditions based on the user's loc
 [Go to Github Project Repository](https://github.com/ejseader/dinner-and-drinks-app)
 
 ---
+
 ## Usage
 
 Screenshot of deployed application
 
-![Screenshot of deployed application](css/application_screenshot_2.png)
+![Screenshot of deployed application](img/dinneranddrinksapp.png)
 
 ---
 
@@ -30,12 +33,9 @@ Screenshot of deployed application
 
 Collaborators:
 
-
-
 - Eric Seader [(Github)](https://github.com/ejseader)
 - Abayomi Michael Aroyeun [(Github)](https://github.com/AbayomiAroyeun)
 - Greg Pfeifer [(Github)](https://github.com/greg-pfeifer)
-
 
 
 API's Utilized:
@@ -51,6 +51,3 @@ API's Utilized:
 Please refer to the [repository](https://github.com/ejseader/dinner-and-drinks-app) for a copy of the license.
 
 ---
-=======
-# Dinner and Drinks App
->>>>>>> main
