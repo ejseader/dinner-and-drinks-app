@@ -16,6 +16,10 @@ body {
     width: 100%;
 }
 
+.hide {
+    display: none;
+}
+
 section h1 {
     font-size: 2rem;
     text-align: center;
@@ -47,18 +51,25 @@ footer {
     color: white;
 }
 
-
 .dd-row {
     display: flex;
     min-height: 100%;
     justify-content: space-around;
-    flex-grow: 1;
     flex-wrap: wrap;
+    flex-grow: 1;
     align-items: flex-stretch;
     background-color: #3e8ed0;
-    color: white;
-    padding-bottom: 20px;
+    color: black;
+    padding: 10px 10px 20px 10px;
     margin-bottom: 20px;
+}
+
+.dd-row h1 {
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #05487e;
+    border-radius: 10px 10px 0 0;
 }
 
 .dd-column {
@@ -66,16 +77,53 @@ footer {
 }
 
 .resultsBox {
-    width: 600px;
+    width: 100%;
     height: 500px;
+    padding: 2%;
     background-color: #aaa;
+    font-size: 1.1rem;
     color: black;
     border: 1px solid black;
+    border-radius: 0 0 10px 10px;
+    margin-bottom: 10px;
 }
 
+.ingredientsTitle {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.resultsBox ul li {
+    list-style: none;
+    text-align: left;;
+}
+
+.name {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.instructions {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.instText {
+    font-size: 1rem;
+    text-align: left;;
+}
 
 .weather {
     margin: 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 5px;
+    background-color: lightcyan;
+    border-radius: 5px;
+    border: 1px solid black;
 }
 
 .column.dd-columns {
